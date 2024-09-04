@@ -15,14 +15,14 @@ function App() {
   // const [show, setShow] = useState(false)
   // const [cronometro, setCronometro] = useState(0)
   // const [activo,setActivo] = useState(false)
-  // const [cryptoList, setCryptoList] = useState([])
+  const [cryptoList, setCryptoList] = useState([])
 
   
 
   // Función para manejar la llamada a la API y el estado de carga   -   //useCallback => memoriza la funcion para no recrearla again o solo cuando [crypto] cambia
   const handleShowInfo = useCallback(() => { 
     setLoading(true);
-    FetchCrypto(crypto).then(data => {
+    FetchCrypto(crypto).then(data => {  //Este .then(data => maneja la respuesta de la promesa devuelta por FetchCrypto
     setShowCrypto(data);
       
       setLoading(false);
@@ -78,7 +78,8 @@ function App() {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-//setCryptoList(data.data)
+
+setCryptoList(data.data.slice(0,5))
       }
       )
     
@@ -125,17 +126,19 @@ function App() {
   
   <>
 
-{/*
-   {cryptoList.map((crypto) => (
-    <div key={crypto.id}>
-              <h2>{crypto.name}</h2>
-              <p>{crypto.priceUsd}</p>
-              <p>{crypto.marketCapUsd}</p>
-           
-            </div>
-*/} 
+
    
    <JuegosForm />
+
+
+   {cryptoList.map((data) => (
+    <div key={data.id}>
+              <h2>{data.name}</h2>
+              <p>{parseFloat(data.priceUsd).toFixed(2)}</p>
+             
+           
+            </div>
+))} 
    
    </>
           </>
