@@ -132,9 +132,9 @@ setCryptoList(data.data.slice(0,5))
 
 
    {cryptoList.map((data) => (
-    <div key={data.id}>
-              <h2>{data.name}</h2>
-              <p>{parseFloat(data.priceUsd).toFixed(2)}</p>
+    <div key={data.id} className='cryptoItem'>
+              <h2 className='cryptoName'>{data.symbol}</h2>
+              <p className='cryptoPrice'>{parseFloat(data.priceUsd).toFixed(2)} $</p>
              
            
             </div>
