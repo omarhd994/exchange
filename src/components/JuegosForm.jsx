@@ -13,7 +13,7 @@ export const JuegosForm = () => {
     
       return (
         <>
-            <h3>Juegos</h3>
+            <h3>TEST test Juegos</h3>
                 <form onSubmit={handleSubmitJuegos}>
                 <input type='texto' name='titulo' placeholder='Titulo del juego'/>
                 <br/>

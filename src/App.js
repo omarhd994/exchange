@@ -6,6 +6,7 @@ import { CryptoDisplay } from './components/CryptoDisplay';
 import { Loader } from './components/Loader';
 import { JuegosForm } from './components/JuegosForm';
 import { FetchCrypto } from './helpers/FetchCrypto';
+import { useCryptoList } from './custom hooks/useCryptoList';
 
 function App() {
   const [crypto, setCrypto] = useState("");
@@ -15,11 +16,9 @@ function App() {
   // const [show, setShow] = useState(false)
   // const [cronometro, setCronometro] = useState(0)
   // const [activo,setActivo] = useState(false)
-  const [cryptoList, setCryptoList] = useState([])
-
   
-
   // Función para manejar la llamada a la API y el estado de carga   -   //useCallback => memoriza la funcion para no recrearla again o solo cuando [crypto] cambia
+  
   const handleShowInfo = useCallback(() => { 
     setLoading(true);
     FetchCrypto(crypto).then(data => {  //Este .then(data => maneja la respuesta de la promesa devuelta por FetchCrypto
@@ -34,14 +33,14 @@ function App() {
       });
   }, [ crypto ]);
 
-  
+    
 
   useEffect(() => {
     // Si la longitud de la cadena es mayor o igual a 3, llamamos a handleShowInfo
     if (crypto.length >= 3)
       handleShowInfo();
 
-    // Establecemos un temporizador para actualizar los datos cada 40 segundos
+    // Establecemos un temporizador para actualizar los datos cada 40 segundos 
     const timer = setInterval(() => {
       handleShowInfo();
     }, 40000)
@@ -72,20 +71,9 @@ function App() {
   
   */}
 
-  useEffect (() => {
-  
-      fetch("https://api.coincap.io/v2/assets")
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
 
-setCryptoList(data.data.slice(0,5))
-      }
-      )
-    
-  }, [])
-  
-  
+
+  const cryptoList = useCryptoList();
   
 
 
@@ -131,13 +119,11 @@ setCryptoList(data.data.slice(0,5))
    <JuegosForm />
 
 
-   {cryptoList.map((data) => (
+   {cryptoList.slice(0,5).map((data) => (
     <div key={data.id} className='cryptoItem'>
               <h2 className='cryptoName'>{data.symbol}</h2>
               <p className='cryptoPrice'>{parseFloat(data.priceUsd).toFixed(2)} $</p>
-             
-           
-            </div>
+    </div>
 ))} 
    
    </>
