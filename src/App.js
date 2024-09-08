@@ -31,6 +31,7 @@ function App() {
         setShowCrypto(null);
         setLoading(false);
       });
+
   }, [ crypto ]);
 
     
@@ -54,7 +55,7 @@ function App() {
 
   /////////////////////////
 
-  {/* 
+  /* 
     useEffect(()=> {
     let interval;
     
@@ -69,7 +70,7 @@ function App() {
 
   }, [activo])
   
-  */}
+  */
 
 
 

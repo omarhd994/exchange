@@ -1,6 +1,8 @@
 // helpers/FetchCrypto.js
 export const FetchCrypto = (crypto) => {
-  return fetch(`https://api.coinbase.com/v2/exchange-rates?currency=${crypto}`)
+    const apiURL = process.env.REACT_APP_API_1_URL;
+    const url = `${apiURL}${crypto}`
+  return fetch(url)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
