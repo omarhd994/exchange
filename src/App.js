@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { CryptoInput } from './components/CryptoInput';
 import { CryptoDisplay } from './components/CryptoDisplay';
 import { Loader } from './components/Loader';
-import { JuegosForm } from './components/JuegosForm';
+// import { JuegosForm } from './components/JuegosForm';
 import { FetchCrypto } from './helpers/FetchCrypto';
 import { useCryptoList } from './custom hooks/useCryptoList';
 
@@ -115,9 +115,6 @@ function App() {
   
   <>
 
-
-   
-   <JuegosForm />
 
 
    {cryptoList.slice(0,5).map((data) => (

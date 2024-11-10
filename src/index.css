@@ -84,8 +84,8 @@ body {
   flex-direction: row;
   align-items: center;
   width: 30%;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 1px;
+  margin: 5px 0;
   background-color: #535353;
   border: 1px solid #ffffff;
   border-radius: 5px;
