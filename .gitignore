@@ -22,6 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Environment configuration files
-.env
+# no need to hide .env here
 

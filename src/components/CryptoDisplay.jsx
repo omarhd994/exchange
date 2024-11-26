@@ -2,7 +2,7 @@ export const CryptoDisplay = ({ showCrypto }) => {
   return (
     <div className="displayText">
         {showCrypto  ? (
-              <div>
+              <div className="boxResult">
                 <h2 className='rate'>The exchange rate for the crypto is: {showCrypto} </h2>
               </div>)
               : (
