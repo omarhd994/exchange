@@ -22,7 +22,7 @@ function App() {
   const handleShowInfo = useCallback(() => { 
     setLoading(true);
     FetchCrypto(crypto).then(data => {  //Este .then(data => maneja la respuesta de la promesa devuelta por FetchCrypto
-    setShowCrypto(data);
+    setShowCrypto(parseFloat(data).toFixed(2));  //parsefloat.. rounds to 2 decimals
       
       setLoading(false);
       })
@@ -95,7 +95,7 @@ function App() {
             
 
          <CryptoInput setCrypto={setCrypto} handleShowInfo={handleShowInfo}/>
-
+        
         {loading ? <Loader /> : <CryptoDisplay crypto={crypto} showCrypto={showCrypto} />}
 
             {/*
