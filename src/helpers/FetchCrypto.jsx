@@ -10,7 +10,9 @@ export const FetchCrypto = (crypto) => {
       return response.json(); //Primero en una respuesta normal, luego .then data.data...
     })
     .then(data => {
+
       return data.data.rates.USD;
+    
     })
     .catch(error => {
       console.error('Error fetching data:', error);

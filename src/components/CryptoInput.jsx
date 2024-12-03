@@ -9,3 +9,11 @@ export const CryptoInput = ({setCrypto, handleShowInfo}) => {
     </div>
   )
 }
+
+
+//   {cryptoList.slice(0,6).map((data) => (
+  //   <div key={data.id} className='cryptoItem'>
+  //             <h2 className='cryptoName'>{data.symbol}</h2>
+  //             <p className='cryptoPrice'>{parseFloat(data.priceUsd).toFixed(2)} $</p>
+  //   </div>
+  // ))} 

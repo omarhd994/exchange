@@ -19,11 +19,10 @@ function App() {
   
   // Función para manejar la llamada a la API y el estado de carga   -   //useCallback => memoriza la funcion para no recrearla again o solo cuando [crypto] cambia
   
-  const handleShowInfo = useCallback(() => { 
+  const handleShowInfo = useCallback(() => {  //useCallback evita que se vuelva a crear una instancia en cada renderizado solo cuando la dependencia "crypto" cambia
     setLoading(true);
     FetchCrypto(crypto).then(data => {  //Este .then(data => maneja la respuesta de la promesa devuelta por FetchCrypto
     setShowCrypto(parseFloat(data).toFixed(2));  //parsefloat.. rounds to 2 decimals
-      
       setLoading(false);
       })
       .catch(error => {
@@ -44,7 +43,7 @@ function App() {
     // Establecemos un temporizador para actualizar los datos cada 40 segundos 
     const timer = setInterval(() => {
       handleShowInfo();
-    }, 40000)
+    }, 400000)
 
     // Limpiamos el temporizador cuando el componente se desmonta o cuando crypto cambia
     return () => {
@@ -117,7 +116,7 @@ function App() {
 
 
 
-   {cryptoList.slice(0,5).map((data) => (
+   {cryptoList.slice(0,6).map((data) => (
     <div key={data.id} className='cryptoItem'>
               <h2 className='cryptoName'>{data.symbol}</h2>
               <p className='cryptoPrice'>{parseFloat(data.priceUsd).toFixed(2)} $</p>
