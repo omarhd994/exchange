@@ -18,6 +18,11 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 10px;
+}
+
+.input {
+  border-radius: 10%;
 }
 
 .showInfoBtn {
@@ -27,7 +32,13 @@ code {
   cursor: pointer;
   border-radius: 5px;
   width: 40%;
-  margin-top: 5px;
+  height: 30px;
+  margin-top: 6px;
+}
+
+.showInfoBtn:hover {
+  background-color:rgb(247, 176, 44);
+
 }
 
 .displayText {
@@ -41,7 +52,6 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #2b2b2b;
   background: url("/src/images/BlackBackgroundCrypto.jpg");
   color: rgb(231, 231, 231);
   height: 100vh;
@@ -94,7 +104,9 @@ code {
 
 
 .cryptoPrice {
-  color: rgb(0, 0, 0);
-  font-size: 16px;
+  color: rgb(255, 255, 255);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+  font-size: 17px;
   margin-left: 5px;
 }

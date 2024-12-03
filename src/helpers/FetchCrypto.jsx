@@ -1,6 +1,6 @@
 // helpers/FetchCrypto.js
 export const FetchCrypto = (crypto) => {
-    const apiURL = process.env.REACT_APP_API_1_URL;
+    const apiURL = "https://api.coinbase.com/v2/exchange-rates?currency="
     const url = `${apiURL}${crypto}`
   return fetch(url)
     .then(response => {
